@@ -1,0 +1,57 @@
+.notification {
+    padding: 15px;
+    margin: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-family: sans-serif;
+}
+
+.success {
+    background-color: rgb(83, 199, 65);
+}
+
+.info {
+    background-color: rgb(220, 173, 117);
+}
+
+.warning {
+    background-color: rgb(206, 209, 41);
+}
+
+.error {
+    background-color: rgb(224, 70, 70);
+} 
+
+.closeBtn {
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.top-right{
+ position: fixed;
+ top: 20px;
+ right: 20px;   
+}
+
+.top-left{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+.bottom-right{
+    position: fixed;   
+    bottom: 20px;
+    right: 20px;
+}
+
+.bottom-right{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
