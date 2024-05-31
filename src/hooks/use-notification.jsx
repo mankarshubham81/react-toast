@@ -2,24 +2,30 @@ import { useCallback, useState } from 'react';
 import Notification from '../components/notification';
 
 const useNotification = (position = "top-right") => {
-    const [notification, setNotification] = useState(null);
-    let timer;  
+    const [notifications, setNotifications] = useState([]);
 
     const triggerNotification = useCallback((notificationProps) => {
-        clearTimeout(timer);
-        setNotification(notificationProps);
-        timer = setTimeout(() => {
-            setNotification(null);
+        const id = Date.now();
+        setNotifications(prev => [...prev, { ...notificationProps, id }]);
+
+        setTimeout(() => {
+            setNotifications(prev => prev.filter(notification => notification.id !== id));
         }, notificationProps.duration);
-    }, [])
+    }, []);
 
-    const NotificationComponent = notification ? (
+    const removeNotification = useCallback((id) => {
+        setNotifications(prev => prev.filter(notification => notification.id !== id));
+    }, []);
+
+    const NotificationComponent = (
         <div className={`${position}`}>
-            <Notification {...notification}/>
+            {notifications.map(notification => (
+                <Notification key={notification.id} {...notification} onClose={() => removeNotification(notification.id)} />
+            ))}
         </div>
-    ) : null;
+    );
 
-    return { NotificationComponent, triggerNotification};
+    return { NotificationComponent, triggerNotification };
 }
 
-export default useNotification
+export default useNotification;

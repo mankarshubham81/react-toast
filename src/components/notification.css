@@ -5,25 +5,26 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-family: sans-serif;
+    background-color: rgba(0, 0, 0, 0.8); /* Adding a background to distinguish overlapping */
 }
 
 .success {
-    background-color: rgb(83, 199, 65);
+    background-color: rgb(56, 173, 84); /* Brighter Green */
 }
 
 .info {
-    background-color: rgb(220, 173, 117);
+    background-color: rgb(30, 144, 255); /* Lighter Blue */
 }
 
 .warning {
-    background-color: rgb(206, 209, 41);
+    background-color: rgb(255, 165, 0); /* Muted Yellow */
 }
 
 .error {
-    background-color: rgb(224, 70, 70);
-} 
+    background-color: rgb(220, 53, 69); /* Vivid Red */
+}
 
 .closeBtn {
     margin-left: 5px;
@@ -32,26 +33,38 @@
     align-items: center;
 }
 
-.top-right{
- position: fixed;
- top: 20px;
- right: 20px;   
+.top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.top-left{
+.top-left {
     position: fixed;
     top: 20px;
     left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.bottom-right{
-    position: fixed;   
+.bottom-right {
+    position: fixed;
     bottom: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.bottom-right{
+.bottom-left {
     position: fixed;
     bottom: 20px;
     left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
