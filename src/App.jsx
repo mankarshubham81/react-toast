@@ -3,8 +3,7 @@ import './App.css';
 import useNotification from './hooks/use-notification';
 
 function App() {
-
-  const [count, setCount] = useState(0);
+  const [position, setPosition] = useState('top-left'); // State to store the selected position
 
   const notificationInfo = [
     {
@@ -30,16 +29,31 @@ function App() {
   ];
 
   // change the position of notification from here
-  const { NotificationComponent, triggerNotification } = useNotification("top-left");
+  const { NotificationComponent, triggerNotification } = useNotification(position);
 
   return (
     <>
-      <div>
-        {notificationInfo.map(({ type, message, duration }) => (
-          <button key={type} onClick={() => triggerNotification({ type, message, duration })}>
-            {type}
-          </button>
-        ))}
+      <div className='main-container'>
+        <div className="control-panel">
+          <label htmlFor="position-select">Select Notification Position: </label>
+          <select
+            id="position-select"
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+          >
+            <option value="top-left">Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+        <div className="button-grid">
+          {notificationInfo.map(({ type, message, duration }) => (
+            <button key={type} onClick={() => triggerNotification({ type, message, duration })}>
+              {type}
+            </button>
+          ))}
+        </div>
         {NotificationComponent}
       </div>
     </>
