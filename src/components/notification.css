@@ -43,6 +43,22 @@
     align-items: flex-end;
 }
 
+.top {
+    position: fixed;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .top-left {
     position: fixed;
     top: 20px;
